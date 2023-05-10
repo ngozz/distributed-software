@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-</html>
-<html>
-
 <head>
   <!--scale theo chiều rộng thiết bị để hiển thị tốt trên điện thoại-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +8,11 @@
   <title>Chuyển file sử dụng P2P và BitTorrent</title>
   <meta name="title" content="Send Files Now">
   <meta name="description" content="Peer-to-peer file sharing in your browser">
-
+  <!--4 packages dùng để chạy back-end-->
+  <script src='https://bundle.run/prettier-bytes@1.0.4'></script> <!--hiển thị số byte đẹp hơn (làm tròn)-->
+  <script src='https://bundle.run/upload-element@1.0.1'></script> <!--dùng để upload file(s) từ local-->
+  <script src='https://bundle.run/create-torrent@4.7.0'></script> <!--tạo torrent bằng node.js và browser-->
+  <!--WebTorrent, thư viện chạy torrent trên web nổi tiếng-->
   <script src='https://cdn.jsdelivr.net/npm/webtorrent@latest/webtorrent.min.js'></script>
 </head>
 
