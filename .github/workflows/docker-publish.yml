@@ -1,7 +1,5 @@
 name: Docker
-uses: docker/build-push-action@v2
-  with:
-    context: Dockerfile
+
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
@@ -38,7 +36,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: Dockerfile
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
