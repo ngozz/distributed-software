@@ -19,3 +19,7 @@ function init() { //hàm đầu tiên. nếu ở trang file thì gửi file từ
         seedTorrent(files);
     })
 }
+
+window.addEventListener('load', function () { //sau khi trang load xong sẽ chạy check()
+    check();
+})
