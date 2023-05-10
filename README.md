@@ -1,2 +1,2 @@
 # Distributed-Software
-School Project
+School Project 2
