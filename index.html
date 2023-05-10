@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+</html>
+<html>
+
+<head>
+  <!--scale theo chiều rộng thiết bị để hiển thị tốt trên điện thoại-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="utf-8" http-equiv="encoding">
+  <title>Chuyển file sử dụng P2P và BitTorrent</title>
+  <meta name="title" content="Send Files Now">
+  <meta name="description" content="Peer-to-peer file sharing in your browser">
+
+  <script src='https://cdn.jsdelivr.net/npm/webtorrent@latest/webtorrent.min.js'></script>
+</head>
+
+<body>
+  <section id="text">
+    <!--Trang gửi và nhận ở chung 1 file html. Mặc định trang nhận sẽ bị ẩn-->
+    <div id="upPage">
+      <h1>Chuyển file sử dụng P2P và BitTorrent</h1>
+      <h2>Chọn các file muốn gửi</h2>
+      <input type="file" name="upload" id="upload" multiple hidden />
+      <label for="upload"><span>Chọn file</span></label>
+      <p id="note" style="visibility: hidden;">*Không đóng trang web khi đang gửi file</p>
+    </div>
+
+    <div id="downPage" style="display: none">
+      <h1>Nhận file</h1><br><br>
+      <a href="" class="button" target="_blank">Muốn chuyển file?</a><br><br>
+    </div>
+
+    <div class="extended">
+      <div id="speed"></div>
+      <div id="log"></div>
+    </div>
+
+  </section>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
