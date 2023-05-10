@@ -1,0 +1,27 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  #text {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  input[type="file"] + label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2em;
+  }
+  input[type="file"] + label:hover {
+    background-color: #3e8e41;
+  }
+</style>
