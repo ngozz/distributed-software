@@ -91,6 +91,6 @@ jobs:
       # https://github.com/sigstore/cosign
       - name: Sign the published Docker image
         run: |
-          IMAGE_ID=docker.io/ngozz/distributed-software
+          IMAGE_ID=docker.io/ngozz/distributed-software:main
           echo "Pushing image to $IMAGE_ID"
           docker push $IMAGE_ID
