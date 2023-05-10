@@ -1,27 +1,32 @@
-<style>
-  body {
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-  }
-  #text {
+}
+
+#text {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-  }
-  h1, h2 {
+}
+
+h1,
+h2 {
     text-align: center;
-  }
-  input[type="file"] + label {
+}
+
+input[type="file"] + label {
     cursor: pointer;
-    display: inline-block;
+    display: block;
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
     border-radius: 5px;
     font-size: 1.2em;
+    width: fit-content;
+    margin: 0 auto;
   }
-  input[type="file"] + label:hover {
+
+input[type="file"]+label:hover {
     background-color: #3e8e41;
-  }
-</style>
+}
