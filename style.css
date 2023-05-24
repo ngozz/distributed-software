@@ -1,3 +1,23 @@
+.custom-shape-divider-bottom-1684940209 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1684940209 svg {
+    position: relative;
+    display: block;
+    width: calc(135% + 1.3px);
+    height: 76px;
+}
+
+.custom-shape-divider-bottom-1684940209 .shape-fill {
+    fill: #FFFFFF;
+}
 body {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
