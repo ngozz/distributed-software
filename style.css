@@ -138,3 +138,10 @@ input[type="file"]+label:hover {
     position: relative;
     margin-bottom: 23px
 }
+
+.torrent-log .link-and-copy .link {
+    font-size: 12px;
+    opacity: .7;
+    display: block;
+    padding-right: 60px
+}
