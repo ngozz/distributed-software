@@ -133,3 +133,8 @@ input[type="file"]+label:hover {
     text-transform: uppercase;
     font-weight: 900
 }
+
+.torrent-log .link-and-copy {
+    position: relative;
+    margin-bottom: 23px
+}
