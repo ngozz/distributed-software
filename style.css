@@ -179,3 +179,6 @@ input[type="file"]+label:hover {
     bottom: 32px
 }
 
+.torrent-log .link-and-copy .copy:hover {
+    background-color: #4558d6
+}
