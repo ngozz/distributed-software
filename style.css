@@ -182,3 +182,23 @@ input[type="file"]+label:hover {
 .torrent-log .link-and-copy .copy:hover {
     background-color: #4558d6
 }
+
+.torrent-log .files-label {
+    margin: 5px 0 10px 0;
+    text-transform: uppercase;
+    font-weight: 900
+}
+
+.torrent-log .files-label .number-of-files {
+    display: inline-block;
+    margin-left: 3px;
+    position: relative;
+    bottom: 2px;
+    font-size: 12px;
+    font-weight: 400;
+    background-color: #4558d6;
+    border-radius: 9px;
+    padding: 1px 5px;
+    min-width: 16px;
+    text-align: center
+}
