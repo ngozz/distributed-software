@@ -119,3 +119,11 @@ input[type="file"]+label:hover {
     opacity: .45;
     font-size: 13.6px
 }
+
+.torrent-log {
+    width: 100%;
+    padding: 30px 46px;
+    -webkit-backdrop-filter: blur(6px) brightness(105%) saturate(120%);
+    backdrop-filter: blur(6px) brightness(105%) saturate(120%);
+    text-align: left
+}
