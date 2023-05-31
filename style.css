@@ -127,3 +127,9 @@ input[type="file"]+label:hover {
     backdrop-filter: blur(6px) brightness(105%) saturate(120%);
     text-align: left
 }
+
+.torrent-log .link-label {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 900
+}
