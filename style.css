@@ -119,3 +119,63 @@ input[type="file"]+label:hover {
     opacity: .45;
     font-size: 13.6px
 }
+
+.torrent-log {
+    width: 100%;
+    padding: 30px 46px;
+    -webkit-backdrop-filter: blur(6px) brightness(105%) saturate(120%);
+    backdrop-filter: blur(6px) brightness(105%) saturate(120%);
+    text-align: left
+}
+
+.torrent-log .link-label {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 900
+}
+
+.torrent-log .link-and-copy {
+    position: relative;
+    margin-bottom: 23px
+}
+
+.torrent-log .link-and-copy .link {
+    font-size: 12px;
+    opacity: .7;
+    display: block;
+    padding-right: 60px
+}
+
+.torrent-log .link-and-copy .copy {
+    position: absolute;
+    right: 0;
+    top: -5px;
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background-color: #6cc0d7;
+    margin-left: 10px;
+    cursor: pointer;
+    -webkit-transition: background-color .3s linear;
+    transition: background-color .3s linear
+}
+
+.torrent-log .link-and-copy .copy::after {
+    content: 'Copied';
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 15px;
+    text-align: center;
+    opacity: 0;
+    z-index: -1;
+    -webkit-transition: all .15s ease-out;
+    transition: all .15s ease-out
+}
+
+.torrent-log .link-and-copy .copy.copied::after {
+    opacity: 1;
+    bottom: 32px
+}
+
