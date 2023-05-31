@@ -179,3 +179,66 @@ input[type="file"]+label:hover {
     bottom: 32px
 }
 
+.torrent-log .link-and-copy .copy:hover {
+    background-color: #4558d6
+}
+
+.torrent-log .files-label {
+    margin: 5px 0 10px 0;
+    text-transform: uppercase;
+    font-weight: 900
+}
+
+.torrent-log .files-label .number-of-files {
+    display: inline-block;
+    margin-left: 3px;
+    position: relative;
+    bottom: 2px;
+    font-size: 12px;
+    font-weight: 400;
+    background-color: #4558d6;
+    border-radius: 9px;
+    padding: 1px 5px;
+    min-width: 16px;
+    text-align: center
+}
+
+.torrent-log .file-list a {
+    display: block;
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 12px 20px 12px 36px;
+    -webkit-filter: brightness(1);
+    filter: brightness(1);
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: left center
+}
+
+.torrent-log .file-list a:hover {
+    color: #6cc0d7
+}
+
+.torrent-log .file-list a.visited {
+    color: #c7c7c7;
+    -webkit-filter: saturate(0%) brightness(75%);
+    filter: saturate(0%) brightness(75%)
+}
+
+.torrent-log .file-list a.visited:hover {
+    color: #6cc0d7;
+    -webkit-filter: saturate(100%) brightness(100%);
+    filter: saturate(100%) brightness(100%)
+}
+
+.torrent-log .file-list a .file-size {
+    position: absolute;
+    right: 0;
+    top: 14px;
+    color: #4558d6;
+    font-size: 12px
+}
