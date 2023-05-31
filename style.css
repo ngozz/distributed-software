@@ -222,3 +222,23 @@ input[type="file"]+label:hover {
 .torrent-log .file-list a:hover {
     color: #6cc0d7
 }
+
+.torrent-log .file-list a.visited {
+    color: #c7c7c7;
+    -webkit-filter: saturate(0%) brightness(75%);
+    filter: saturate(0%) brightness(75%)
+}
+
+.torrent-log .file-list a.visited:hover {
+    color: #6cc0d7;
+    -webkit-filter: saturate(100%) brightness(100%);
+    filter: saturate(100%) brightness(100%)
+}
+
+.torrent-log .file-list a .file-size {
+    position: absolute;
+    right: 0;
+    top: 14px;
+    color: #4558d6;
+    font-size: 12px
+}
