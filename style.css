@@ -159,3 +159,23 @@ input[type="file"]+label:hover {
     -webkit-transition: background-color .3s linear;
     transition: background-color .3s linear
 }
+
+.torrent-log .link-and-copy .copy::after {
+    content: 'Copied';
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 15px;
+    text-align: center;
+    opacity: 0;
+    z-index: -1;
+    -webkit-transition: all .15s ease-out;
+    transition: all .15s ease-out
+}
+
+.torrent-log .link-and-copy .copy.copied::after {
+    opacity: 1;
+    bottom: 32px
+}
+
