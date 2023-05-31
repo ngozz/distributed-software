@@ -202,3 +202,23 @@ input[type="file"]+label:hover {
     min-width: 16px;
     text-align: center
 }
+
+.torrent-log .file-list a {
+    display: block;
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 12px 20px 12px 36px;
+    -webkit-filter: brightness(1);
+    filter: brightness(1);
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: left center
+}
+
+.torrent-log .file-list a:hover {
+    color: #6cc0d7
+}
