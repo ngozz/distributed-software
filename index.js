@@ -23,3 +23,10 @@ function init() { //hàm đầu tiên. nếu ở trang file thì gửi file từ
 window.addEventListener('load', function () { //sau khi trang load xong sẽ chạy check()
     check();
 })
+
+function check() { //nếu ở trang nhận thì bỏ dấu hash và chạy function downloadTorrent
+    var autoDownload = window.location.hash.substr(1) ? true : false; //window.location.hash returns the anchor of the url (sau #, bao gồm dấu #)
+    if (autoDownload) {
+        downloadTorrent(window.location.hash.substr(1)); //pass anchor (infohash) không có hash tới downloadTorrent)
+    }
+}
