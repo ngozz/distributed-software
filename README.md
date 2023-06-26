@@ -10,4 +10,5 @@ To pull Docker Image, use the following command:
 
 # CI/CD
 Master branch will be automatically deployed to website:
-https://ngozz.github.io/Distributed-Software/
+
+https://ngozz.github.io/distributed-software/
