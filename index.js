@@ -31,3 +31,12 @@ function check() { //nếu ở trang nhận thì bỏ dấu hash và chạy func
         downloadTorrent(window.location.hash.substr(1)); //pass anchor (infohash) không có hash tới downloadTorrent)
     }
 }
+
+function downloadTorrent(infohash) { //tải torrent
+    document.getElementById("upPage").style.display = "none";
+    const announce = createTorrent.announceList;
+    //AnnounceList là một phần không bắt buộc trong metadata file của torrent bao gồm địa chỉ các tracker.
+    //createTorrent.announceList là AnnounceList cho trước mặc định nếu metadata của torrent không có.
+    client.add(infohash, { announce }, addTorrent);
+    log(`<p id="downloading">Downloading ...</p>`);
+}
