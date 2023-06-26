@@ -1,14 +1,15 @@
-let window;
+let client;
 
 //URL có hash (dấu thăng #) tức là đang ở trang nhận
 if (window.location.hash) { //chuyển từ trang gửi sang trang nhận khi có # trong url
     document.getElementById('upPage').style.display = 'none';
     document.getElementById('downPage').style.display = 'inline-block';
 }
+
 function init() { //hàm đầu tiên. nếu ở trang file thì gửi file từ local lên sử dụng upload-element package
-    window = new WebTorrent();
-    window.on('warning', logError);
-    window.on('error', logError);
+    client = new WebTorrent();
+    client.on('warning', logError);
+    client.on('error', logError);
     const upload = document.querySelector('#upload');
     uploadElement(upload, (err, results) => {
         if (err) {
@@ -16,14 +17,13 @@ function init() { //hàm đầu tiên. nếu ở trang file thì gửi file từ
             return
         }
         const files = results.map(result => result.file);
-        seedTorrent(files);
+        seedFiles(files);
     })
 }
 
 window.addEventListener('load', function () { //sau khi trang load xong sẽ chạy check()
     check();
 })
-
 
 function check() { //nếu ở trang nhận thì bỏ dấu hash và chạy function downloadTorrent
     var autoDownload = window.location.hash.substr(1) ? true : false; //window.location.hash returns the anchor of the url (sau #, bao gồm dấu #)
@@ -40,6 +40,7 @@ function downloadTorrent(infohash) { //tải torrent
     client.add(infohash, { announce }, addTorrent);
     log(`<p id="downloading">Downloading ...</p>`);
 }
+
 function addTorrent(torrent) {
     torrent.on('warning', logError);
     torrent.on('error', logError);
@@ -93,3 +94,46 @@ function addTorrent(torrent) {
         })
     })
 }
+
+function seedFiles(files) { //nếu có file thì hiện cảnh báo không đóng web và seed torrent
+    if (files.length === 0) return
+    document.getElementById('note').style.visibility = 'visible';
+    client.seed(files, addTorrent);
+    //seed là một method từ thư viện WebTorrent. 
+    //Gọi seed sẽ tạo torrent mới và seed lên mạng nội bộ. Các peer trong mạng sẽ có thể tải được file.
+}
+
+function copyLink(btn) { //Nút copy link trang web nhận
+    navigator.clipboard.writeText(btn.previousElementSibling.innerText);
+    btn.classList.add('copied');
+    setTimeout(() => { btn.classList.remove('copied') }, 1100);
+}
+
+function updateSpeed(torrent) { //cập nhật tốc độ tải xuống
+    const progress = (100 * torrent.progress).toFixed(0);
+    const speed = `
+          <div class="transfer-info">
+              ${window.location.hash ? `<div class="progress"><div id="progressbar" style="width:${progress}%"></div>${progress}%</div>` : ``}
+              <div class="live-stats">
+                  <div><span class="label">Peers:</span> ${torrent.numPeers}</div>
+                  <div><span class="label">Download speed:</span> ${prettierBytes(client.downloadSpeed)}/s</div>
+                  <div><span class="label">Upload speed:</span> ${prettierBytes(client.uploadSpeed)}/s</div>             
+              </div>                
+          </div>
+      `
+    const speedInfo = document.querySelector('#speed');
+    speedInfo.innerHTML = speed;
+}
+
+// Thêm văn bản vào trang
+function log(element) {
+    const log = document.querySelector('#log');
+    log.insertAdjacentHTML('afterBegin', element);
+}
+
+//log error vào console
+function logError(err) {
+    console.log(err.message);
+}
+
+init()
