@@ -1,3 +1,10 @@
+# Torrent Site
+This is a file transfering website that uses P2P and Torrent protocol.
+
+You can access the site and follow our guide to send and receive files.
+
+https://ngozz.github.io/distributed-software/
+
 # Distributed-Software
 For tutorial on using Docker and CI/CD, check out this PowerPoint file. It's in Vietnamese.
 
