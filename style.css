@@ -239,6 +239,49 @@ input[type="file"]+label:hover {
     position: absolute;
     right: 0;
     top: 14px;
-    color: #4558d6;
+    color: #ffffff;
     font-size: 12px
+}
+
+#send-email {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 12px;
+    margin-left: 100px;
+}
+
+#send-email:hover {
+    background-color: #3e8e41; /* Darker green */
+}
+
+#email {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+#email:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.email-container {
+    display: flex;
+    align-items: center;
+}
+
+#email {
+    flex-grow: 1;
+    margin-right: 10px;
 }

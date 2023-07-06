@@ -63,17 +63,61 @@ function addTorrent(torrent) {
     const torId = torrentIds[0].split(':')
     const hash = torId[3]
 
-    //Hiển thị link nhận
-    let torrentLog = `<section class="torrent-log">
-    <p class="link-label">Share link</p>
-    <div class="link-and-copy">
-      <p class="link" style="text-transform:lowercase;">${window.location.href}#${hash}</p>
-      <span class="copy" onclick="copyLink(this)">Copy</span>
-    </div>
-    <p class="files-label">Files <span class="number-of-files">${torrent.files.length}</span></p>
-    <div class="file-list"></div>
-  </section>`
-    log(torrentLog);
+    if (!window.location.hash) { //chuyển từ trang gửi sang trang nhận khi có # trong url
+        //Hiển thị link nhận
+        let torrentLog = `<section class="torrent-log">
+            <p class="link-label">Share link</p>
+            <div class="link-and-copy">
+                <p class="link" style="text-transform:lowercase;">${window.location.href}#${hash}</p>
+                <span class="copy" onclick="copyLink(this)">Copy</span>
+                <p class="link-label"">Send link to Email</p>
+                <div class="email-container">
+                    <input type="email" id="email" placeholder="Nhập địa chỉ email">
+                    <button id="send-email">Send</button>
+                </div>
+            </div>
+            <p class="files-label">Files <span class="number-of-files">${torrent.files.length}</span></p>
+            <div class="file-list"></div>
+        </section>`
+        log(torrentLog);
+        emailjs.init('DbTsP_2pzP-09GtkP');
+
+        document.getElementById('send-email').addEventListener('click', function() {
+            swal({
+                title: "Xác nhận",
+                text: "Bạn có muốn gửi link tới email này không?",
+                icon: "warning",
+                buttons: ["Huỷ", "Tiếp tục"],
+                dangerMode: true,
+            }).then((willSend) => {
+                if (willSend) {
+                    const email = document.getElementById('email').value;
+                    const link = document.querySelector('.link').textContent;
+        
+                    emailjs.send('service_v7xk0fa', 'template_1fwz6ib', {
+                        to_email: email,
+                        share_link: link
+                    }).then(function(response) {
+                        console.log('Email sent successfully!', response.status, response.text);
+                        swal("Thành công!", "Link đã được gửi đến email!", "success");
+                    }, function(error) {
+                        console.log('Failed to send email.', error);
+                        swal("Lỗi!", "Không gửi được email", "error");
+                    });
+                } else {
+                    swal("Huỷ!", "Link không được gửi đến email!", "error");
+                }
+            });
+        });
+        
+    }
+    else {
+        let torrentLog = `<section class="torrent-log">
+            <p class="files-label">Files <span class="number-of-files">${torrent.files.length}</span></p>
+            <div class="file-list"></div>
+        </section>`
+        log(torrentLog);
+    }
 
     torrent.files.forEach(file => {
         // Thêm link nhận file
@@ -135,5 +179,6 @@ function log(element) {
 function logError(err) {
     console.log(err.message);
 }
+
 
 init()
